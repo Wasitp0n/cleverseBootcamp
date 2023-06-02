@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  text-align: center;
+  background-color: aliceblue;
+}
+h1 {
+  margin: 10 px;
+  padding: 20px 10%;
+}
+.nvpix {
+  display: none;
+}
+.navcon1 {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+  padding: 0 10%;
+  flex-wrap: wrap;
+  position: sticky;
+  width: 80%;
+}
+.navcon2 {
+  display: flex;
+  justify-content: space-around;
+  border-radius: 10px;
+  gap: 10px;
+  align-items: center;
+}
+.hamberger {
+  display: none;
+}
+.main1 {
+  display: flex;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+  /* padding: 20px 5%; */
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.frame {
+  width: 20%;
+  gap: 10px;
+  background-color: whitesmoke;
+  box-shadow: inset;
+  /* justify-content: space-around; */
+  box-shadow: 5px 5px 5px rgb(159, 158, 158);
+  font-weight: bold;
+}
+.frame img {
+  width: 100%;
+}
+
+@media (min-width: 481px) and (max-width: 1200px) {
+  .frame {
+    width: 40%;
+  }
+  .hamberger {
+    display: block;
+  }
+  .navcon2 {
+    display: none;
+  }
+  .nvpix {
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .frame {
+    width: 100%;
+  }
+  .hamberger {
+    display: block;
+  }
+  .navcon2 {
+    display: none;
+  }
+  .nvpix {
+    display: block;
+  }
+}
