@@ -1,0 +1,9 @@
+.tab {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 20%;
+}
+
+.redt {
+  color: red;
+}

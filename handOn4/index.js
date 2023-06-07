@@ -1,7 +1,6 @@
 const textIn = document.getElementById("task");
 const textButton = document.getElementById("taskInput");
 const list = document.getElementById("listOfTask");
-
 textButton.addEventListener("click", (e) => {
   e.preventDefault();
   if (!textIn.value) {
@@ -23,5 +22,3 @@ textButton.addEventListener("click", (e) => {
   }
   textIn.value = "";
 });
-
-

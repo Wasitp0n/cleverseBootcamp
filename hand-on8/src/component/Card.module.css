@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 70px;
+  border-radius: 10px;
+}
+
+.frame {
+  height: 250px;
+  width: 400px;
+  gap: 100px;
+  background-color: white;
+}
+
+.inframe {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  gap: 20px;
+}
+
+.redt {
+  color: red;
+}
