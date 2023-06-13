@@ -1,30 +1,32 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 
 const usePosts = () => {
-  const [posts, setNewPosts] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [posts, setPosts] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     const fetchData = async () => {
-      setIsLoading(true);
+      setIsLoading(true)
       try {
-        const res = await fetch('https://jsonplaceholder.typicode.com/posts');
-        const data = await res.json();
-        console.log(data);
-        setNewPosts(data);
+        const res = await fetch('https://api.learnhub.thanayut.in.th/content')
+        const data = await res.json()
+        console.log(data)
+        setPosts(data)
       } catch (err) {
-        console.log(err);
+        console.log(err)
       } finally {
-        setIsLoading(false);
+        setIsLoading(false)
       }
-    };
-    fetchData();
-  }, []);
+    }
+
+    fetchData()
+  }, [])
+
   return {
     posts,
-    setNewPosts,
+    setPosts,
     isLoading,
-  };
-};
+  }
+}
 
-export default usePosts;
+export default usePosts

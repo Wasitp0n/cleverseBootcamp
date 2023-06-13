@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState } from "react";
 
 const AuthContext = createContext();
 
@@ -7,8 +7,8 @@ export const useAuth = () => {
   return context;
 };
 
-const token = localStorage.getItem('token');
-const user = localStorage.getItem('user');
+const token = localStorage.getItem("token");
+const user = localStorage.getItem("user");
 
 const AuthProvider = (props) => {
   const { children } = props;
@@ -19,18 +19,21 @@ const AuthProvider = (props) => {
     const loginInfo = { username, password };
 
     try {
-      const res = await fetch('https://api.learnhub.thanayut.in.th/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(loginInfo),
-      });
+      const res = await fetch(
+        "https://api.learnhub.thanayut.in.th/auth/login",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(loginInfo),
+        }
+      );
       const data = await res.json();
 
       if (data.statusCode === 401) {
         throw new Error(data.message);
       }
-      localStorage.setItem('token', data.accessToken);
-      localStorage.setItem('user', username);
+      localStorage.setItem("token", data.accessToken);
+      localStorage.setItem("user", username);
       setIsLoggedIn(true);
       setUsername(username);
     } catch (err) {
@@ -39,13 +42,17 @@ const AuthProvider = (props) => {
   };
 
   const logout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
     setIsLoggedIn(false);
     setUsername(null);
   };
 
-  return <AuthContext.Provider value={{ isLoggedIn, login, logout, username }}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={{ isLoggedIn, login, logout, username }}>
+      {children}
+    </AuthContext.Provider>
+  );
 };
 
 export default AuthProvider;
